@@ -3,6 +3,7 @@ import 'fancy_button.dart';
 
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(new MyApp());
 
@@ -100,7 +101,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   point: LatLng(-25.4296825, -49.2671714),
                   builder: (context) {
                     return Container(
-                      child: FlutterLogo(),
+                      child: IconButton(
+                        icon: Icon(FontAwesomeIcons.mapMarkerAlt),
+                        color: Color(0xff6200ee),
+                        iconSize: 45.0,
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (builder) {
+                              return Container(
+                                color: Colors.white,
+                                child: Center(
+                                  child: Text("Hello!"),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
                     );
                   },
                 ),
